@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desligamentos</title>
 
+    <!--O arquivo reset.css deve ser linkado em todas as páginas, para resetar os estilos padrões aplicados pelo navegador e pelas tags-->
+    <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/index.css">
 </head>
 
 <body>
 
     <header class="cabecalho">
-        <h1 class="titulo">Cadastro de Devolução</h1>
+        <h1 class="tituloPrincipal">Cadastro de Devolução</h1>
     </header>
 
-    <main>
+    <main class="conteinerPrincipal">
 
-        <form action="" method="post" class="formulario">
+        <form class="formulario">
 
             <div class="divInputs">
                 <label for="">Nome do colaborador:</label>
@@ -26,28 +28,35 @@
 
             <div class="divInputs">
                 <label for="">Numero do contrato:</label>
-                <input type="number" class="inputEntrada" max="3">
+                <!--Limitação de numero de contrato com mais de três algarismos-->
+                <input type="text" class="inputEntrada" inputmode="numeric" pattern="\d{1,8}" maxlength="8">
             </div>
 
             <div class="divInputs">
-                <label for=""></label>
-                <input type="text" class="inputEntrada">
+                <label for="">Data do e-mail de Desligamento:</label>
+                <input type="date" class="inputEntrada">
             </div>
 
             <div class="divInputs">
-                <label for=""></label>
-                <input type="text" class="inputEntrada">
+                <label for="">Data limite de devolução:</label>
+                <input type="date" class="inputEntrada">
             </div>
 
             <div class="divInputs">
-                <label for=""></label>
-                <input type="text" class="inputEntrada">
+                <label for="">Status do desligamento:</label>
+
+                <select id="opcoesDesligamento">
+                    <option value="Nada Consta">Nada consta</option>
+                    <option value="Aguardando Devolução">Agurdando devolução</option>
+                    <option value="Devolvido para Ponto Focal">Devolvido para ponto focal</option>
+                    <option value="Equipamento Recebido">Equipamento recebido</option>
+                </select>
+                
             </div>
 
-            <div class="divInputs">
-                <label for=""></label>
-                <input type="text" class="inputEntrada">
-            </div>
+            <!--Utilização da tag <a> apenas como teste, a tag a ser realmente utilizada deverá ser button-->
+            <a href="finalizado.html">Cadastrar</a>
+
 
         </form>
 

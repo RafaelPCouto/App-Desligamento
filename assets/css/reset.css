@@ -1,0 +1,7 @@
+/* O asterisco aplica o estilo a todas as tags da pagina, individualmente */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
