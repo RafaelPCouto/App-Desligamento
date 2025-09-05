@@ -1,69 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desligamentos</title>
-
-    <!--O arquivo reset.css deve ser linkado em todas as páginas, para resetar os estilos padrões aplicados pelo navegador e pelas tags-->
-    <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Devolução</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 
 <body>
+  <div class="container">
+    <h1>Cadastro de devolução</h1>
 
-    <header class="cabecalho">
-        <h1 class="tituloPrincipal">Cadastro de Devolução</h1>
-    </header>
+    <form id="devolucao-form">
+      <label for="nome">Nome do colaborador:</label>
+      <input type="text" id="nome" name="nome" required />
+      
 
-    <main class="conteinerPrincipal">
-
-        <form class="formulario">
-
-            <div class="divInputs">
-                <label for="">Nome do colaborador:</label>
-                <input type="text" class="inputEntrada">
-            </div>
-
-            <div class="divInputs">
-                <label for="">Numero do contrato:</label>
-                <!--Limitação de numero de contrato com mais de três algarismos-->
-                <input type="text" class="inputEntrada" inputmode="numeric" pattern="\d{1,8}" maxlength="8">
-            </div>
-
-            <div class="divInputs">
-                <label for="">Data do e-mail de Desligamento:</label>
-                <input type="date" class="inputEntrada">
-            </div>
-
-            <div class="divInputs">
-                <label for="">Data limite de devolução:</label>
-                <input type="date" class="inputEntrada">
-            </div>
-
-            <div class="divInputs">
-                <label for="">Status do desligamento:</label>
-
-                <select id="opcoesDesligamento">
-                    <option value="Nada Consta">Nada consta</option>
-                    <option value="Aguardando Devolução">Agurdando devolução</option>
-                    <option value="Devolvido para Ponto Focal">Devolvido para ponto focal</option>
-                    <option value="Equipamento Recebido">Equipamento recebido</option>
-                </select>
-                
-            </div>
-
-            <!--Utilização da tag <a> apenas como teste, a tag a ser realmente utilizada deverá ser button-->
-            <a href="finalizado.html">Cadastrar</a>
+    <label for="contrato">Número do contrato:</label>
+    <input type="text" id="contrato" name="contrato" maxlength="3" minlength="3" required />
 
 
-        </form>
+      <label for="data-email">Data do e-mail do desligamento:</label>
+      <input type="date" id="data-email" name="data-email" required />
 
-    </main>
+      <label for="data-limite">Data limite:</label>
+      <input type="date" id="data-limite" name="data-limite" required />
 
-    <footer></footer>
+      <label for="status">Status do desligamento:</label>
+      <select id="status" name="status" required>
+        <option value="">-- Selecione --</option>
+        <option value="nada_consta">Nada consta</option>
+        <option value="aguardando_devolucao">Aguardando devolução</option>
+        <option value="devolvido">Devolvido para ponto focal</option>
+      </select>
 
+      <!-- Área que será exibida dinamicamente -->
+      <div id="devolucao-itens" style="display: none;">
+        <label>Selecione os itens a serem devolvidos:</label>
+
+        <div class="item">
+          <input type="checkbox" id="monitor" name="itens" value="monitor" />
+          <label for="monitor">Monitor</label>
+          <input type="text" id="patrimonio-monitor" placeholder="Número de patrimônio do monitor" style="display: none;" />
+        </div>
+
+        <div class="item">
+          <input type="checkbox" id="notebook" name="itens" value="notebook" />
+          <label for="notebook">Notebook</label>
+          <input type="text" id="patrimonio-notebook" placeholder="Número de patrimônio do notebook" style="display: none;" />
+        </div>
+
+        <div class="item">
+          <input type="checkbox" id="telefone" name="itens" value="telefone" />
+          <label for="telefone">Telefone</label>
+          <input type="number" id="patrimonio-telefone" placeholder="Linha do telefone" style="display: none;" />
+        </div>
+      </div>
+
+      <button type="submit" id="teste">Enviar</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
